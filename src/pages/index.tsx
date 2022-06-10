@@ -1,21 +1,48 @@
+import Head from "next/head";
 import { NextPage } from "next";
-import Collection from "../components/Collection"
+import Card from "../components/Card"
+import Search from "components/Search";
+
 
 interface Props {
-  id: number
-  email: string
-  first_name: string
-  last_name: string
-  avatar: string
+  users: {
+    id: number
+    email: string
+    first_name: string
+    last_name: string
+    avatar: string
+  }[]
+}
 
-}[]
-
-const HomePage: NextPage = (props:Props) => {
- 
+const HomePage: NextPage = (props: Props) => {
+  console.log(props);
   return (
     <div>
-        <Collection props={props} />
-    </div>   
+      <Head>
+        <title>testmayoral</title>
+      </Head>
+      <body>
+        <Search />
+        <main className="">
+          {props.users.map(user => <Card key={user.id} user={user} />)}
+        </main>
+      </body>
+      <style jsx>{`
+       
+      `}
+      </style>
+      <style jsx global>{`
+        body {
+          padding: 3%;
+        } 
+        main {
+          display: flex;
+          justify-content: space-around;
+          
+        }`}
+      </style>
+
+    </div>
   )
 };
 
@@ -24,8 +51,8 @@ const HomePage: NextPage = (props:Props) => {
 HomePage.getInitialProps = async () => {
   const res = await fetch("https://reqres.in/api/users");
   const resJSON = await res.json();
-  /* console.log(resJSON); */
-  return {users: resJSON.data}
+
+  return { users: resJSON.data }
 
 }
 export default HomePage;

@@ -1,9 +1,8 @@
 import { DUMMY_IMAGE_URL } from "pages/Settings"
 
-const Card = (user:any) => {
-    console.log(user);
-    
-    const src = user.avatar ? user.avatar : DUMMY_IMAGE_URL//si no hay imagen me pone la dummy
+const Card = ({user}) => { 
+ 
+    const src = user.avatar ? user.avatar : DUMMY_IMAGE_URL//si no hay imagen me pone la dummy    
     
     return (
         <div className="card m-4 p-4 border border-success   ">
@@ -15,6 +14,19 @@ const Card = (user:any) => {
                 <p className="text-secondary">mas colores</p>
                 <button className="btn btn-success px-3">AÑADIR</button>
             </div>
+            <style jsx>{`
+                .card{
+                    border: solid;                  
+                    margin: 1%;
+                    padding: 4%;
+                    text-align: center;
+                }
+                .card-img-top{
+                   
+
+                }
+            `}
+            </style>
         </div>
     )
 }
