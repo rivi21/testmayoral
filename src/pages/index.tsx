@@ -1,58 +1,51 @@
 import Head from "next/head";
 import { NextPage } from "next";
-import Card from "../components/Card"
+import Card from "../components/Card";
 import Search from "components/Search";
 
-
 interface Props {
-  users: {
+  data: {
     id: number
-    email: string
-    first_name: string
-    last_name: string
+    description: string
+    price: string
+    promotion: string
     avatar: string
   }[]
 }
 
-const HomePage: NextPage = (props: Props) => {
-  console.log(props);
+const HomePage: NextPage = ({data}: Props) => {
   return (
-    <div>
+    <div className="bg-light" >
       <Head>
         <title>testmayoral</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
       </Head>
-      <body>
+      <header className="container fixed-top bg-light pb-3">
         <Search />
-        <main className="">
-          {props.users.map(user => <Card key={user.id} user={user} />)}
-        </main>
-      </body>
-      <style jsx>{`
-       
-      `}
-      </style>
-      <style jsx global>{`
-        body {
-          padding: 3%;
-        } 
+        <div className="pt-5 bg-light border-bottom"></div>
+      </header>
+      <main className="row row-cols-3 row-cols-md-4 row-cols-lg-5 justify-content-center ">
+        {data.map(article => <Card key={article.id} article={article} />)}
+      </main>
+
+      <style jsx>{`        
         main {
-          display: flex;
-          justify-content: space-around;
-          
+          padding-top: 150px;       
         }`}
       </style>
 
     </div>
   )
 };
-
-
-// Para cargar datos en la aplicación
+// Para cargar datos en la aplicación. Solo en componentes de tipo página
+// ESte método se ejecuta en el servidor antes de renderizar el componente para poder hidratar el html
+// que le pasamos al cliente y así poder hacerlo dinámico, xq ese html no deja de ser un string estático
 HomePage.getInitialProps = async () => {
-  const res = await fetch("https://reqres.in/api/users");
+  const res = await fetch("http://localhost:3000/api/data"); // https://reqres.in/api/users
   const resJSON = await res.json();
+  const data = resJSON.data
 
-  return { users: resJSON.data }
+  return { data }
 
 }
 export default HomePage;

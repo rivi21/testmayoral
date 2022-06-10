@@ -1,30 +1,30 @@
 import { DUMMY_IMAGE_URL } from "pages/Settings"
 
-const Card = ({user}) => { 
+const Card = ({article}) => { 
  
-    const src = user.avatar ? user.avatar : DUMMY_IMAGE_URL//si no hay imagen me pone la dummy    
+    const src = article.avatar ? article.avatar : DUMMY_IMAGE_URL//si no hay imagen me pone la dummy    
     
     return (
-        <div className="card m-4 p-4 border border-success   ">
-            <img className="card-img-top py-3" src={src} alt="..." />
-            <div className="card-body text-center">
-                <h5 className="card-title pb-5"><strong>{user.email}</strong></h5>
-                <p>{user.first_name}</p>
-                <p className="pb-3 text-danger">{user.last_name}</p> {/* si hay */}
+        <div className="card m-2 px-3 border border-success">
+            <img src={src} className="card-img-top py-3" alt="..." />
+            <div className="card-body text-center p-0 ">
+                <h6 className="card-title pb-2 text-truncate">{article.description}
+                </h6>
+                <p className="card-text text-decoration-line-through">{article.price}</p>
+                <p className="card-text pb-1 text-danger">{article.promotion ? article.promotion : "nada"}</p> {/* si hay */}
                 <p className="text-secondary">mas colores</p>
                 <button className="btn btn-success px-3">AÑADIR</button>
             </div>
             <style jsx>{`
-                .card{
-                    border: solid;                  
-                    margin: 1%;
-                    padding: 4%;
-                    text-align: center;
+                .card {
+                   height: 60vh;
+                   width: 42%
                 }
-                .card-img-top{
-                   
-
+                .card-img-top {
+                    width: max-width;
+                    height: 45%;
                 }
+                
             `}
             </style>
         </div>
