@@ -10,10 +10,8 @@ const Pagination = () => {
     <style jsx>{`
       .pagination {
         opacity: .3;
-      }
-    
-    `}
-      
+      }    
+    `}     
     </style>
     </>
   )

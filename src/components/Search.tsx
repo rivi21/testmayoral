@@ -14,12 +14,13 @@ const Search = () => {
                 {`
                  .input-wrapper {
                     position: relative;   
-                    width: 80% ;                     
+                    width: 80%;                       
                 }
                 .input {
                     height: 3em;
                     width: 100%;
-                    padding-left: 15%                
+                    padding-left: 50px;
+                                   
                 }
                 .input-icon {
                     color: #191919;
