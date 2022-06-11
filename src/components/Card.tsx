@@ -6,7 +6,7 @@ const Card = ({ article }) => {
 
     return (
         <>
-            <div className="card m-2 px-3 border border-success">
+            <div className="card m-2 px-3 border border-info">
                 <img src={src} className="card-img-top py-3" alt="..." />
                 <div className="card-body text-center p-0 ">
                     <h6 className="card-title pb-2 text-truncate">{article.description}
@@ -16,13 +16,14 @@ const Card = ({ article }) => {
                         <p className="promotion card-text pb-1 text-danger">{article.promotion ? article.promotion : ""}</p> {/* si hay */}
                     </div>
                     <p className="text-secondary">mas colores</p>
-                    <button className="btn btn-success px-3">AÑADIR</button>
+                    <button className="btn btn-primary px-3">AÑADIR</button>
                 </div>
             </div>
             <style jsx> {`
                 .card {
                    height: 60vh;
                    width: 40%;
+                   border-radius: 8px !important;
                 }
                 .card-img-top {
                     width: max-width;

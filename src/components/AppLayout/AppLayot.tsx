@@ -32,7 +32,9 @@ export default function AppLayout({ children }) {
                         .header {
                             flex-direction: row-reverse !important;
                             flex-wrap: wrap;
-                            justify-content: space-around !important;                        
+                            justify-content: space-around !important;
+                            padding-top: 2em;  
+                            padding.bottom: 2em;                      
                         }
                     }         
                 `}
