@@ -14,13 +14,27 @@ export default function AppLayout({ children }) {
             <style jsx global>
                 {`        
                     main {
-                      padding-top: 200px;       
+                        padding-top: 200px;                             
                     }
-                    .header-bottom-line{
-                      height: 3em;
-                      width: 90%;
-                      border-bottom: 1px solid grey;
-                    }          
+                    .header {
+                        background-color: #FEFEFE;
+                    }
+                    .header-bottom-line {
+                        height: 3em;
+                        width: 90%;
+                        border-bottom: 1px solid #D7DBDD;
+                    }
+                    @media only screen 
+                    and (min-width: 768px) {
+                        .header-bottom-line {
+                            display: none
+                        }
+                        .header {
+                            flex-direction: row-reverse !important;
+                            flex-wrap: wrap;
+                            justify-content: space-around !important;                        
+                        }
+                    }         
                 `}
             </style>
         </>

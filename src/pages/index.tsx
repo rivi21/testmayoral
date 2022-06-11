@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { NextPage } from "next";
 import Card from "../components/Card";
 import Search from "components/Search";
@@ -17,18 +16,16 @@ interface Props {
 
 const HomePage: NextPage = ({ data }: Props) => {
   return (
-    <div className="bg-light" >
-      <AppLayout>
-        <header className="d-flex flex-column align-items-center fixed-top bg-light pb-3">
+    <AppLayout>     
+        <header className="header d-flex flex-column align-items-center fixed-top  pb-3">
           <Pagination />
           <Search />
-          <div className="py-3 header-bottom-line"></div>
+          <div className="header-bottom-line"></div>
         </header>   
         <article className="d-flex flex-wrap justify-content-center">
           {data.map(article => <Card key={article.id} article={article} />)}
         </article> 
-      </AppLayout>
-    </div>
+    </AppLayout>
   )
 };
 

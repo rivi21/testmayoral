@@ -4,11 +4,6 @@ const Card = ({ article }) => {
 
     const src = article.avatar ? article.avatar : DUMMY_IMAGE_URL//si no hay imagen me pone la dummy    
 
-    const promotion = () => {
-        if (article.promotion) {
-            return article.promotion
-        }
-    }
     return (
         <>
             <div className="card m-2 px-3 border border-success">
@@ -82,5 +77,4 @@ const Card = ({ article }) => {
         </>
     )
 }
-
 export default Card
