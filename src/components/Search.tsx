@@ -1,10 +1,27 @@
 import { FaSearch } from 'react-icons/fa';
 
-const Search = () => {
+interface Element {
+    id: number
+    description: string
+    price: string
+    promotion: string
+    picture: string
+}
+
+`// @refresh reset `
+const Search = ({ collection, setCollectionArray }) => {
+
+    function searchArticles(e) {
+        const collectionFiltered = collection.data.filter(
+            (article: Element) => article.description.toUpperCase().includes(e.target.value.toUpperCase()));
+
+        return setCollectionArray(collectionFiltered);
+    }
+
     return (
         <>
             <div className="search-wrapper mt-4">
-                <input type="text" className="search" placeholder="Buscar"></input>
+                <input onInput={(e) => searchArticles(e)} type="text" className="search" placeholder="Buscar"></input>
                 <div className="search-icon p-1">
                     <FaSearch size="20" />
                 </div>

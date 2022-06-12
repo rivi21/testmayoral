@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default function AppLayout({ children }) {
+export default function AppLayout(props) {
     return (
         <>
             <Head>
@@ -9,7 +9,7 @@ export default function AppLayout({ children }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta> {/* for media queries to work */}
             </Head>
             <main>
-                {children}
+                {props.children}
             </main>
             <style jsx global>
                 {`        
