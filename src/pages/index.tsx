@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import Search from "components/Search";
 import Pagination from "components/Pagination";
 import AppLayout from "components/AppLayout/AppLayot";
+import Order from "components/Order";
 
 interface Props {
   data: {
@@ -47,6 +48,7 @@ const HomePage = (collection: Props) => {
           <Search
             collection={collection}
             setCollectionArray={setCollectionArray} />
+          <Order />
           <div className="header-bottom-line"></div>
         </header>
         <article className="d-flex flex-wrap justify-content-center">
