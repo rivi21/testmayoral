@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Search from "components/Search";
 import Pagination from "components/Pagination";
@@ -25,16 +25,17 @@ interface Pages {
 
 const HomePage = (collection: Props) => {
 
-  let pages = [];
-  const collectionData: Pages[] = collection.data;
-  const totalArticles = collection.data.length;
-
-  for (let i = 0; i < totalArticles; i = i + 6) {
-    pages.push(collectionData.slice(i, i + 6));
-  };
-
-  const [collectionArray, setCollectionArray] = useState(pages[0]);
+  const [articles, setArticles] = useState(collection.data);
   const [currentPage, setCurrentPage] = useState(1);
+ 
+  let dataPages = []
+  const totalArticles = articles.length;
+  for (let i = 0; i < totalArticles; i = i + 6) {
+    dataPages.push(articles.slice(i, i + 6)); 
+  };
+  const [pages, setPages] = useState(dataPages);
+  const [collectionArray, setCollectionArray] = useState(pages[0]);
+  console.log(pages)
 
   return (
     <>
@@ -48,7 +49,11 @@ const HomePage = (collection: Props) => {
           <Search
             collection={collection}
             setCollectionArray={setCollectionArray} />
-          <Order />
+          <Order
+            articles={articles}
+            setCurrentPage={setCurrentPage}
+            setPages={setPages}
+            setCollectionArray={setCollectionArray} />
           <div className="header-bottom-line"></div>
         </header>
         <article className="d-flex flex-wrap justify-content-center">
