@@ -2,7 +2,7 @@ import { FaMinus, FaPlus } from 'react-icons/fa';
 
 const Pagination = ({ pages, currentPage, setCurrentPage, setCollectionArray }) => {
 
-  function previous(page) {
+  function previousPage(page) {
     if (page > 1) {
       setCurrentPage(page - 1);
       setCollectionArray(pages[page - 2]);
@@ -11,7 +11,7 @@ const Pagination = ({ pages, currentPage, setCurrentPage, setCollectionArray }) 
     }
   };
 
-  function next(page) {
+  function nextPage(page) {
     if (page < pages.length) {
       setCurrentPage(page + 1);
       setCollectionArray(pages[page]);
@@ -23,10 +23,10 @@ const Pagination = ({ pages, currentPage, setCurrentPage, setCollectionArray }) 
   return (
     <>
       <div className=" pagination d-flex justify-content-between px-2 pt-4">
-        <div className="pag-icon" onClick={() => previous(currentPage)}>
+        <div className="pag-icon" onClick={() => previousPage(currentPage)}>
           <FaMinus className="pag-icon" size="40" />
         </div>
-        <div className="pag-icon" onClick={() => next(currentPage)}>
+        <div className="pag-icon" onClick={() => nextPage(currentPage)}>
           <FaPlus size="40" />
         </div>
       </div>
@@ -47,5 +47,4 @@ const Pagination = ({ pages, currentPage, setCurrentPage, setCollectionArray }) 
     </>
   )
 }
-
 export default Pagination

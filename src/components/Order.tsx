@@ -1,7 +1,7 @@
 
 const Order = ({ articles, setCurrentPage, setPages, setCollectionArray }) => {
 
-    function makePages() {       
+    function dividePages() {       
         let dataPages = [];
         const totalArticles = articles.length;
         for (let i = 0; i < totalArticles; i = i + 8) {
@@ -15,19 +15,19 @@ const Order = ({ articles, setCurrentPage, setPages, setCollectionArray }) => {
         articles.sort(function (a, b) {
             return a.price - b.price;
         });
-        makePages()
+        dividePages()
     }
     const descending = () => {
         articles.sort(function (a, b) {
             return b.price - a.price;
         });
-        makePages();
+        dividePages();
     }
     const deleteFilters = () => {
         articles.sort(function (a, b) {
             return a.id - b.id;
         });
-        makePages();
+        dividePages();
     }
 
     return (

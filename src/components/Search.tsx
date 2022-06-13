@@ -8,7 +8,6 @@ interface Element {
     picture: string
 }
 
-`// @refresh reset `
 const Search = ({ collection, setCollectionArray }) => {
 
     function searchArticles(e) {
