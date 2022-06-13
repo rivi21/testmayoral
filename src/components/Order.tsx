@@ -4,8 +4,8 @@ const Order = ({ articles, setCurrentPage, setPages, setCollectionArray }) => {
     function makePages() {       
         let dataPages = [];
         const totalArticles = articles.length;
-        for (let i = 0; i < totalArticles; i = i + 6) {
-            dataPages.push(articles.slice(i, i + 6));
+        for (let i = 0; i < totalArticles; i = i + 8) {
+            dataPages.push(articles.slice(i, i + 8));
         };
         setCollectionArray(dataPages[0]);
         setPages(dataPages);
@@ -32,7 +32,7 @@ const Order = ({ articles, setCurrentPage, setPages, setCollectionArray }) => {
 
     return (
         <>
-            <div className="dropdown mt-4">
+            <div className="dropdown mt-2">
                 <button className="btn btn-outline-primary dropdown-toggle" type="button" id="ordenarMenu" data-bs-toggle="dropdown" aria-expanded="false">
                     Ordenar
                 </button>

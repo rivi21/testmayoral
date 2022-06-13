@@ -2,7 +2,7 @@ import { DUMMY_IMAGE_URL } from "pages/Settings"
 
 const Card = ({ article }) => {
 
-    const src = article.picture ? article.picture : DUMMY_IMAGE_URL//si no hay imagen me pone la dummy    
+    const src = article.picture ? article.picture : DUMMY_IMAGE_URL   
 
     return (
         <>
@@ -12,8 +12,10 @@ const Card = ({ article }) => {
                     <h6 className="card-title pb-2 text-truncate">{article.id}. {article.description}
                     </h6>
                     <div className="price-wrapper text-center pb-4">
-                        <p className="card-text text-decoration-line-through ">{article.price}</p>
-                        <p className="promotion card-text pb-1 text-danger">{article.promotion ? article.promotion : ""}</p> {/* si hay */}
+                        {article.promotion ?
+                            <p className="card-text text-decoration-line-through">{article.price}</p> :
+                            <p className="card-text ">{article.price}</p>}
+                        <p className="promotion card-text pb-1 text-danger">{article.promotion ? article.promotion : ""}</p>
                     </div>
                     <p className="text-secondary">mas colores</p>
                     <button className="btn btn-primary px-3">AÑADIR</button>
