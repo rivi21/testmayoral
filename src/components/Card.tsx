@@ -2,14 +2,14 @@ import { DUMMY_IMAGE_URL } from "pages/Settings"
 
 const Card = ({ article }) => {
 
-    const src = article.avatar ? article.avatar : DUMMY_IMAGE_URL//si no hay imagen me pone la dummy    
+    const src = article.picture ? article.picture : DUMMY_IMAGE_URL//si no hay imagen me pone la dummy    
 
     return (
         <>
             <div className="card m-2 px-3 border border-info">
                 <img src={src} className="card-img-top py-3" alt="..." />
                 <div className="card-body text-center p-0 ">
-                    <h6 className="card-title pb-2 text-truncate">{article.description}
+                    <h6 className="card-title pb-2 text-truncate">{article.id}. {article.description}
                     </h6>
                     <div className="price-wrapper text-center pb-4">
                         <p className="card-text text-decoration-line-through ">{article.price}</p>
